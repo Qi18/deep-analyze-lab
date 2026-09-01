@@ -8,8 +8,8 @@
 
 当前可确认的事实：
 
-- 实验仓库：`Qi18/deepanalyze-lab`。
-- L20 权威工作区：`/data/projects/deepanalyze-lab`。
+- 实验仓库：`Qi18/deep-analyze-lab`。
+- L20 权威工作区：`/data/projects/deep-analyze-lab`。
 - 官方源码位于普通目录 `DeepAnalyze/`，初始上游 commit 为 `d14468b9ef91372359ddcd70da57e0e0f4eb0d1b`。
 - 官方模型为 DeepAnalyze-8B，基础模型路线为 `DeepSeek-R1-0528-Qwen3-8B`。
 - 推理核心是模型自主生成五类 Action，并根据代码执行反馈继续决策。

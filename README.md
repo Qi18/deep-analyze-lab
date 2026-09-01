@@ -45,8 +45,8 @@ LLM Training Experiment Analyst + Unified Evaluation
 ## 克隆
 
 ```bash
-git clone git@github.com:Qi18/deepanalyze-lab.git
-cd deepanalyze-lab
+git clone git@github.com:Qi18/deep-analyze-lab.git
+cd deep-analyze-lab
 ```
 
 `DeepAnalyze/` 已作为普通源码目录进入仓库，不需要初始化 Submodule。
@@ -54,7 +54,7 @@ cd deepanalyze-lab
 ## L20 权威工作区
 
 ```text
-/data/projects/deepanalyze-lab
+/data/projects/deep-analyze-lab
 ```
 
 代码修改、验证、commit 和 push 均在 L20 完成。模型、训练数据和完整日志不进入 Git。

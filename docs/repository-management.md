@@ -1,10 +1,10 @@
 # 仓库管理方式
 
-`deepanalyze-lab` 保存推理、训练与评测配置，L20 脚本，实验元数据、指标、源码笔记和报告。`DeepAnalyze/` 是通过 Git Subtree 导入的普通源码目录，保存官方源码和本 Lab 的源码修改。
+`deep-analyze-lab` 保存推理、训练与评测配置，L20 脚本，实验元数据、指标、源码笔记和报告。`DeepAnalyze/` 是通过 Git Subtree 导入的普通源码目录，保存官方源码和本 Lab 的源码修改。
 
 ## 权威工作区
 
-L20 的 `/data/projects/deepanalyze-lab` 是权威 checkout。代码修改、验证、commit 和 push 都在 L20 完成，不使用本地仓库中转。
+L20 的 `/data/projects/deep-analyze-lab` 是权威 checkout。代码修改、验证、commit 和 push 都在 L20 完成，不使用本地仓库中转。
 
 正式实验前记录：Lab commit、DeepAnalyze source commit、源码 dirty 状态、model revision、hardware、dtype、dataset version、seed、command 和 tracking URL。工作区不干净时停止正式实验。
 
