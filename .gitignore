@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Models, datasets, and generated artifacts
+data/
+datasets/
+checkpoints/
+outputs/
+logs/
+swanlog/
+swanlab/
+wandb/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.gguf
+
+artifacts/*
+!artifacts/.gitignore
+
+node_modules/
+dist/
+
+.DS_Store
+.idea/
+.vscode/

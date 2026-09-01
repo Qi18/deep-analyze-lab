@@ -1,0 +1,12 @@
+{
+  "experiment_id": "REPLACE_ME",
+  "stage": "REPLACE_ME",
+  "status": "planned",
+  "lab_commit": "REPLACE_ME",
+  "deepanalyze_source_commit": "d14468b9ef91372359ddcd70da57e0e0f4eb0d1b",
+  "model_revision": "REPLACE_ME",
+  "entrypoint": "REPLACE_ME",
+  "hardware": "8x NVIDIA L20",
+  "dtype": "bfloat16",
+  "seed": 42
+}
