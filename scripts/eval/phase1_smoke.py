@@ -41,11 +41,13 @@ def cli_one(task_id):
     d=OUT/"cli"/name
     d.mkdir(parents=True,exist_ok=True)
     import shutil
-    for n in names: shutil.copy2(OUT/"inputs"/n,d/n)
+    workspace = d/"workspace"
+    workspace.mkdir(parents=True, exist_ok=True)
+    for n in names: shutil.copy2(OUT/"inputs"/n,workspace/n)
     full="# Instruction\n"+prompt+SUFFIX+"\n\n# Data\n"+"\n".join(names)
     save(d/"request.json",{"prompt":full,"expected":expected,"temperature":0,"max_tokens":4096,"max_rounds":12})
     start=time.monotonic()
-    result=DeepAnalyzeVLLM(MODEL,max_rounds=12).generate(full,str(d),temperature=0,max_tokens=4096)
+    result=DeepAnalyzeVLLM(MODEL,max_rounds=12).generate(full,str(workspace),temperature=0,max_tokens=4096)
     save(d/"response.json",result)
     text=result.get("reasoning","")
     codes=re.findall(r"<Code>(.*?)</Code>",text,re.S)
