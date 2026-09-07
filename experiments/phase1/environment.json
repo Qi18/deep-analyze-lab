@@ -1,0 +1,20 @@
+{
+  "python": "3.10.12",
+  "lab_commit": "d9002cc89e7d72ec1101e1e68f9684f783d74315",
+  "source_commit": "d14468b9ef91372359ddcd70da57e0e0f4eb0d1b",
+  "gpu": "NVIDIA L20, 46068 MiB, 535.161.08\nNVIDIA L20, 46068 MiB, 535.161.08\nNVIDIA L20, 46068 MiB, 535.161.08\nNVIDIA L20, 46068 MiB, 535.161.08\nNVIDIA L20, 46068 MiB, 535.161.08\nNVIDIA L20, 46068 MiB, 535.161.08\nNVIDIA L20, 46068 MiB, 535.161.08\nNVIDIA L20, 46068 MiB, 535.161.08",
+  "cuda_available": true,
+  "cuda_count": 8,
+  "torch": "2.6.0+cu124",
+  "torch_cuda": "12.4",
+  "cuda_matmul_sum": 32768.0,
+  "packages": {
+    "pandas": "2.2.3",
+    "numpy": "1.26.4",
+    "openpyxl": "3.1.5",
+    "matplotlib": "3.10.9",
+    "requests": "2.32.3",
+    "fastapi": "0.115.12",
+    "openai": "1.75.0"
+  }
+}

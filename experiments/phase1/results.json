@@ -1,0 +1,108 @@
+{
+  "scope": "five synthetic smoke task types, one run each; not benchmark accuracy",
+  "tasks": [
+    {
+      "task": "single",
+      "checks": {
+        "count": true,
+        "total": true,
+        "mean": true
+      },
+      "status": "passed",
+      "code_rounds": 2,
+      "execution_errors": 0,
+      "answer": {
+        "order_count": 6,
+        "total_amount": 1000.0,
+        "mean_amount": 166.67,
+        "explanation": "Calculated from orders.csv with verification: 6 orders totaling 1000 with average amount of 166.67"
+      }
+    },
+    {
+      "task": "join",
+      "checks": {
+        "regions": true
+      },
+      "status": "passed",
+      "code_rounds": 3,
+      "execution_errors": 1,
+      "answer": {
+        "result": [
+          {
+            "Region": "East",
+            "Total Amount": 500
+          },
+          {
+            "Region": "West",
+            "Total Amount": 500
+          }
+        ],
+        "explanation": "Total order amounts aggregated by customer region after joining orders and customer data. Results show equal distribution between East and West regions."
+      }
+    },
+    {
+      "task": "clean",
+      "checks": {
+        "answer": true,
+        "file": true
+      },
+      "status": "passed",
+      "code_rounds": 3,
+      "execution_errors": 1,
+      "answer": {
+        "kept_row_count": 3,
+        "mean_value": 20.0,
+        "explanation": "Processed data by removing rows with null values or values >100. Final dataset contains 3 valid records with mean value of 20.0."
+      }
+    },
+    {
+      "task": "plot",
+      "checks": {
+        "totals": true,
+        "month_order": false,
+        "png_decodable": true
+      },
+      "status": "failed",
+      "code_rounds": 2,
+      "execution_errors": 0,
+      "answer": {
+        "monthly_totals": {
+          "January": 300,
+          "February": 200,
+          "March": 500
+        },
+        "plot_file": "trend.png",
+        "data_file": "trend.csv",
+        "analysis": "Monthly aggregation shows March had highest sales ($500), followed by January ($300), with February being the lowest ($200). The trend plot visualizes this progression."
+      }
+    },
+    {
+      "task": "followup",
+      "checks": {
+        "same_thread": true,
+        "total": true,
+        "march_percentage": true,
+        "reports_downloaded": true,
+        "explanation_arithmetic": false
+      },
+      "status": "partial",
+      "manual_review": "Both numeric answers are correct. First response explanation writes 100+200+150+50+300+100=1000, whose addends sum to 900; actual last order is 200. Evidence text is inconsistent.",
+      "reports": [
+        {
+          "name": "Conversation_Report_20260907_073454.md",
+          "bytes": 4694,
+          "sha256": "f5bd266a9965a9d9d6212aedad3899c0f1e82628dbaf3527c67ceb7abd972cf1"
+        },
+        {
+          "name": "Conversation_Report_20260907_073505.md",
+          "bytes": 7122,
+          "sha256": "7262229b0dcd340dcf2e4204582d7c3b2d42823d23471843adfb9b03a84036d0"
+        }
+      ]
+    }
+  ],
+  "passed": 3,
+  "partial": 1,
+  "failed": 1,
+  "upstream_modified": false
+}

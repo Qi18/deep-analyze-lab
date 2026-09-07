@@ -1,6 +1,8 @@
 # Phase 1：官方部署与五类推理验证
 
 本阶段使用官方 DeepAnalyze-8B 与原始推理/API 实现。任务均来自脚本生成的合成数据；用于验证部署和调用链，不是正式测试集。
+本轮已完成部署和结果核验：3 项通过、1 项部分通过、1 项失败。详细失败轨迹见 [实验报告](report.md)，不将五个样例当作正式准确率。
+
 
 ## 环境与命令
 
@@ -27,6 +29,20 @@ curl -fsS http://127.0.0.1:8200/health
 ```
 
 服务只监听回环地址。API 启动包装器设置监听地址并提供文件 HTTP 服务，使用上游 create_app、存储和执行逻辑。CLI 调用上游 DeepAnalyzeVLLM.generate；没有新增 Agent Loop。原始执行器并非安全沙箱，仅执行本阶段的受控合成样例。
+
+核验已生成的结果（需要文件服务仍在运行以下载报告）：
+
+```bash
+/data/venvs/deepanalyze-phase1/bin/python scripts/eval/phase1_verify.py
+```
+
+执行环境初次准备命令如下；基础系统包来自现有 L20 环境，完整版本记录在本轮的 `artifacts/phase1/execution-freeze.txt`，不视为任意机器上的独立环境锁文件：
+
+```bash
+python3 -m venv --system-site-packages /data/venvs/deepanalyze-phase1
+/data/venvs/deepanalyze-phase1/bin/pip install -i https://mirrors.aliyun.com/pypi/simple pandas openpyxl matplotlib seaborn scikit-learn statsmodels plotly pypandoc fastapi uvicorn openai python-multipart requests
+/data/venvs/deepanalyze-phase1/bin/pip check
+```
 
 ## 输入与参考断言
 

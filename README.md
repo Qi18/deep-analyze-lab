@@ -15,7 +15,8 @@ DeepAnalyze Lab 是围绕自主数据科学 Agent 展开的可复现实验项目
 
 ## 仓库导航
 
-- [简历目标导向六周实验方案](docs/training_plan.md)
+- [八阶段实验与学习方案（当前执行依据）](docs/training_plan.md)
+- [Phase 1 部署与五类任务实测报告](experiments/phase1/report.md)
 - [仓库管理方式](docs/repository-management.md)
 - [统一评测协议](docs/evaluation_protocol.md)
 - [最终报告模板](docs/final_report.md)
@@ -25,23 +26,11 @@ DeepAnalyze Lab 是围绕自主数据科学 Agent 展开的可复现实验项目
 
 ## 学习与实验主线
 
-```text
-Resume Evidence Goal / Frozen Baseline
-            ↓
-Observability + Resume-Eval-v1
-            ↓
-Inference Loop + Error Recovery + Docker Sandbox
-            ↓
-LLM Training Experiment Analyst
-            ↓
-Baseline / Ablation / Stability Evaluation
-            ↓
-Optional SFT / Cold Start / Agentic RL
-            ↓
-API Deployment + Controlled Efficiency Test + Final Report
-```
+按八阶段推进：部署与推理 → 源码与执行反馈 → 评测基线 → 数据与训练准备 → 单能力 SFT → 多能力 Cold Start → Agentic RL → 综合评测与展示。
 
-核心项目以 B0 基础模型、B1 上游 DeepAnalyze 和 B2 本 Lab 工程增强版的同协议对照为主。完整 8B SFT/GRPO 只在数据、算力、基线和评测门槛都满足后启动；未完成训练不影响 Agent 工程主线闭环，但不得在简历中声明训练成果。
+复用上游代码和训练框架，小模型调通流程、8B 开展正式实验；使用 Base-direct、Base-agent、SFT、Cold-start、RL、Official 的同协议对照。配置须经 L20 预检和短跑确认，未完成的训练不得写成简历成果。
+
+Phase 1 已完成五类合成样例的运行与核验：3 项通过、1 项部分通过、1 项失败。失败结果如实保留，不将部署验证当作正式基准评测。
 
 ## 克隆
 
