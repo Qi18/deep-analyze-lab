@@ -40,7 +40,7 @@ Phase 1 已完成五类合成样例的运行与核验：3 项通过、1 项部�
 | 阶段 | 状态 | 当前证据 |
 |---|---|---|
 | Phase 01：部署与推理 | completed | 五类样例 3 passed / 1 partial / 1 failed |
-| Phase 02：Agent Loop | planned | 等待错误注入与调用链实验 |
+| Phase 02：Agent Loop | completed | 契约 4/4；提示驱动 0/2；真实反馈回放 3/3 |
 | Phase 03：评测基线 | planned | 等待开发集、测试集与评分器 |
 | Phase 04：训练数据 | planned | 等待数据审计和训练短跑 |
 | Phase 05：单能力 SFT | planned | 等待训练前后对照 |

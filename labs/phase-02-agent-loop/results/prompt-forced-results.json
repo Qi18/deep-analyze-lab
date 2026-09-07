@@ -1,0 +1,31 @@
+{
+  "scope": "two prompt-forced tasks, one run each; strict action evidence required",
+  "tasks": [
+    {
+      "task": "prompt-forced-missing-file",
+      "status": "failed",
+      "checks": {
+        "has_code_action": false,
+        "has_execute_feedback": false,
+        "required_error_in_execute_feedback": false,
+        "has_final_answer": true,
+        "answer_claims_requested_result": true
+      },
+      "finding": "Mentions in analysis do not count as execution evidence."
+    },
+    {
+      "task": "prompt-forced-name-error",
+      "status": "failed",
+      "checks": {
+        "has_code_action": false,
+        "has_execute_feedback": false,
+        "required_error_in_execute_feedback": false,
+        "has_final_answer": true,
+        "answer_claims_requested_result": true
+      },
+      "finding": "Mentions in analysis do not count as execution evidence."
+    }
+  ],
+  "passed": 0,
+  "failed": 2
+}

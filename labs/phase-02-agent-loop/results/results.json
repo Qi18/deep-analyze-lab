@@ -1,0 +1,87 @@
+{
+  "phase_status": "completed",
+  "scope": "runtime contracts, two prompt-forced attempts, and three genuine-feedback replays",
+  "runtime_contracts": {
+    "status": "passed",
+    "section_count": 4
+  },
+  "prompt_forced_tasks": [
+    {
+      "task": "prompt-forced-missing-file",
+      "status": "failed",
+      "checks": {
+        "has_code_action": false,
+        "has_execute_feedback": false,
+        "required_error_in_execute_feedback": false,
+        "has_final_answer": true,
+        "answer_claims_requested_result": true
+      },
+      "finding": "Mentions in analysis do not count as execution evidence."
+    },
+    {
+      "task": "prompt-forced-name-error",
+      "status": "failed",
+      "checks": {
+        "has_code_action": false,
+        "has_execute_feedback": false,
+        "required_error_in_execute_feedback": false,
+        "has_final_answer": true,
+        "answer_claims_requested_result": true
+      },
+      "finding": "Mentions in analysis do not count as execution evidence."
+    }
+  ],
+  "feedback_replay": {
+    "scope": "genuine executor feedback replayed once per task to the real model; not a benchmark",
+    "model_revision": "214c302cebc61ed92f9c856a3dd47a7fdc588d5f",
+    "tasks": [
+      {
+        "task": "missing-file-feedback",
+        "checks": {
+          "genuine_file_not_found": true,
+          "feedback_sent_as_execute_role": true,
+          "reports_insufficient_data": true,
+          "preserves_filename": true,
+          "has_final_answer": true
+        },
+        "generated_rounds": 1,
+        "status": "passed"
+      },
+      {
+        "task": "name-error-feedback",
+        "checks": {
+          "genuine_name_error": true,
+          "feedback_sent_as_execute_role": true,
+          "successful_followup_value": true,
+          "reports_recovered": true,
+          "has_final_answer": true
+        },
+        "generated_rounds": 2,
+        "status": "passed"
+      },
+      {
+        "task": "timeout-feedback",
+        "checks": {
+          "genuine_timeout": true,
+          "feedback_sent_as_execute_role": true,
+          "successful_followup_value": true,
+          "reports_recovered": true,
+          "has_final_answer": true
+        },
+        "generated_rounds": 4,
+        "status": "passed"
+      }
+    ],
+    "passed": 3,
+    "failed": 0
+  },
+  "key_findings": [
+    "CLI stop_reason </Code> is reclosed before extracting and executing code.",
+    "Execution output is appended to the next request with role=execute.",
+    "CLI max_rounds may finish without an Answer and exposes no explicit incomplete flag.",
+    "An Answer substring terminates the CLI loop before a Code block in the same response is executed.",
+    "API execution uses a fresh subprocess and timeout; normal Python failures are stderr without an [Error] prefix.",
+    "Prompt text that describes an expected error can produce unsupported recovery claims without any Code or Execute action."
+  ],
+  "upstream_modified": false
+}

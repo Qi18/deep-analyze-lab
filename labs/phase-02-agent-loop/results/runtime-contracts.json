@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "sections": {
+    "scripted_recovery": {
+      "checks": {
+        "stop_parameter_sent": true,
+        "stop_reason_reclosed_code": true,
+        "error_feedback_role_execute": true,
+        "error_feedback_contains_name_error": true,
+        "success_feedback_role_execute": true,
+        "success_feedback_contains_5": true,
+        "final_answer_present": true
+      },
+      "reasoning": "<Analyze>Run a controlled failure.</Analyze>\n<Code>print(phase2_undefined_name)</Code>\n<Execute>\n[Error]:\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    print(phase2_undefined_name)\nNameError: name 'phase2_undefined_name' is not defined\n</Execute>\n<Code>print(sum([2, 3]))</Code>\n<Execute>\n5\n\n</Execute>\n<Answer>{\"recovered\": true, \"result\": 5}</Answer>",
+      "request_count": 4
+    },
+    "max_round_cap": {
+      "checks": {
+        "exactly_two_requests": true,
+        "no_answer_after_cap": true
+      },
+      "reasoning": "<Analyze>step one</Analyze>\n<Analyze>step two</Analyze>",
+      "request_count": 2
+    },
+    "answer_precedence": {
+      "checks": {
+        "single_request": true,
+        "answer_terminates_before_code_execution": true,
+        "answer_preserved": true
+      },
+      "reasoning": "<Code>open(\"answer_precedence_should_not_exist.txt\", \"w\").write(\"bad\")</Code><Answer>{\"done\": true}</Answer>"
+    },
+    "api_executor": {
+      "checks": {
+        "success_stdout": true,
+        "exception_returned_as_stderr": true,
+        "exception_not_prefixed_error": true,
+        "fresh_process_loses_state": true,
+        "timeout_marker": true,
+        "timeout_is_bounded": true,
+        "temporary_scripts_removed": true
+      },
+      "outputs": {
+        "success": "42\n",
+        "failure": "Traceback (most recent call last):\n  File \"/data/projects/deep-analyze-lab/artifacts/phase2/phase2-contract-he_601x4/executor/tmpnpmmqqv4.py\", line 1, in <module>\n    print(phase2_missing_name)\nNameError: name 'phase2_missing_name' is not defined\n",
+        "isolated_second_call": "Traceback (most recent call last):\n  File \"/data/projects/deep-analyze-lab/artifacts/phase2/phase2-contract-he_601x4/executor/tmphq47b8fq.py\", line 1, in <module>\n    print(phase2_state)\nNameError: name 'phase2_state' is not defined\n",
+        "timeout": "[Timeout]: execution exceeded 1 seconds",
+        "timeout_elapsed_seconds": 1.007
+      }
+    }
+  }
+}

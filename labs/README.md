@@ -5,7 +5,7 @@
 | 阶段 | 主题 | 状态 | 完成证据 |
 |---|---|---|---|
 | [Phase 01](phase-01-deployment/README.md) | 官方部署与五类推理验证 | completed | 3 passed / 1 partial / 1 failed |
-| [Phase 02](phase-02-agent-loop/README.md) | Agent Loop 与执行反馈 | planned | 错误注入、调用链和恢复轨迹 |
+| [Phase 02](phase-02-agent-loop/README.md) | Agent Loop 与执行反馈 | completed | 契约 4/4；提示驱动 0/2；反馈回放 3/3 |
 | [Phase 03](phase-03-evaluation/README.md) | 统一评测基线 | planned | 开发集、独立测试集和评分器 |
 | [Phase 04](phase-04-training-data/README.md) | 数据与训练准备 | planned | 数据审计和小模型短跑 |
 | [Phase 05](phase-05-single-sft/README.md) | 单能力 SFT | planned | 训练前后分能力对照 |
