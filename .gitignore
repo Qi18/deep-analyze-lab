@@ -11,7 +11,14 @@ venv/
 !.env.example
 
 # Models, datasets, and generated artifacts
-data/
+data/*
+!data/README.md
+!data/fixtures/
+!data/manifests/
+data/fixtures/*
+data/manifests/*
+!data/fixtures/.gitkeep
+!data/manifests/.gitkeep
 datasets/
 checkpoints/
 outputs/

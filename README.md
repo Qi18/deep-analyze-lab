@@ -15,14 +15,17 @@ DeepAnalyze Lab 是围绕自主数据科学 Agent 展开的可复现实验项目
 
 ## 仓库导航
 
-- [八阶段实验与学习方案（当前执行依据）](docs/training_plan.md)
-- [Phase 1 部署与五类任务实测报告](experiments/phase1/report.md)
+- [项目说明](docs/project-overview.md)
+- [系统架构](docs/architecture.md)
+- [八阶段实验与学习方案](docs/learning-plan.md)
+- [Phase 1 部署与五类任务实测报告](labs/phase-01-deployment/results/report.md)
+- [Labs 阶段索引](labs/README.md)
 - [仓库管理方式](docs/repository-management.md)
-- [统一评测协议](docs/evaluation_protocol.md)
-- [最终报告模板](docs/final_report.md)
-- [源码阅读索引](docs/source_reading/README.md)
-- [DeepAnalyze 上游来源与同步](docs/upstream-deepanalyze.md)
-- [实验登记规范](experiments/README.md)
+- [统一评测协议](docs/evaluation-protocol.md)
+- [复现规范](docs/reproducibility.md)
+- [简历证据与最终报告模板](docs/resume-guide.md)
+- [源码阅读方法](docs/source-reading-guide.md)
+- [DeepAnalyze 上游来源与同步](docs/upstream.md)
 
 ## 学习与实验主线
 
@@ -31,6 +34,33 @@ DeepAnalyze Lab 是围绕自主数据科学 Agent 展开的可复现实验项目
 复用上游代码和训练框架，小模型调通流程、8B 开展正式实验；使用 Base-direct、Base-agent、SFT、Cold-start、RL、Official 的同协议对照。配置须经 L20 预检和短跑确认，未完成的训练不得写成简历成果。
 
 Phase 1 已完成五类合成样例的运行与核验：3 项通过、1 项部分通过、1 项失败。失败结果如实保留，不将部署验证当作正式基准评测。
+
+## 当前进度
+
+| 阶段 | 状态 | 当前证据 |
+|---|---|---|
+| Phase 01：部署与推理 | completed | 五类样例 3 passed / 1 partial / 1 failed |
+| Phase 02：Agent Loop | planned | 等待错误注入与调用链实验 |
+| Phase 03：评测基线 | planned | 等待开发集、测试集与评分器 |
+| Phase 04：训练数据 | planned | 等待数据审计和训练短跑 |
+| Phase 05：单能力 SFT | planned | 等待训练前后对照 |
+| Phase 06：Cold Start | planned | 等待多轮轨迹训练 |
+| Phase 07：Agentic RL | planned | 等待 GRPO 和奖励消融 |
+| Phase 08：综合评测 | planned | 等待最终冻结版本 |
+
+## 目录职责
+
+```text
+DeepAnalyze/     固定的上游源码
+docs/            项目级方案、协议和简历证据规范
+labs/            八个阶段各自完整的学习与实验闭环
+src/             被多个 Lab 复用的本项目正式代码
+tests/           src 的自动化测试
+scripts/         跨阶段的启动、评测、同步和清理入口
+data/            可提交的小型 fixture 与数据 manifest
+artifacts/       L20 原始日志和大体积产物，Git 忽略
+experiments.csv  正式运行的全局索引
+```
 
 ## 克隆
 

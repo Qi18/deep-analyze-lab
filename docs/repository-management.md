@@ -39,7 +39,7 @@ git subtree pull \
   main --squash
 ```
 
-同步后检查源码 diff、运行推理 smoke test，更新 [`upstream-deepanalyze.md`](upstream-deepanalyze.md) 和实验元数据。正式实验开始后不得自动漂移源码版本。
+同步后检查源码 diff、运行推理 smoke test，更新 [`upstream.md`](upstream.md) 和实验元数据。正式实验开始后不得自动漂移源码版本。
 
 ## 发布门槛
 
