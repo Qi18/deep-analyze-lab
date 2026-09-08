@@ -1,0 +1,16 @@
+{
+  "source_records": 392869,
+  "sample_size": 2048,
+  "seed": 42,
+  "template": "deepseek_r1",
+  "max_length": 8192,
+  "response_prefix": "",
+  "sample_actual_over_limit": 0,
+  "estimated_tokens_per_epoch": 654579797,
+  "approximate_95pct_token_interval": [
+    631580515,
+    677579079
+  ],
+  "estimated_packed_sequences_per_epoch": 79905,
+  "caveat": "Uniform sample estimate; actual packing efficiency, long-example filtering and training duration must be measured separately."
+}

@@ -1,0 +1,66 @@
+{
+  "base_revision": "6e8885a6ff5c1dc5201574c8fd700323f23c25fa",
+  "upstream_commit": "d14468b9ef91372359ddcd70da57e0e0f4eb0d1b",
+  "training_stack": {
+    "deepspeed": "0.16.9",
+    "liger_kernel": "0.6.2",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.51.1",
+    "datasets": "3.3.2"
+  },
+  "common": {
+    "gpu_ids": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "max_length": 8192,
+    "model_type": "deepseek_r1_distill",
+    "template": "deepseek_r1",
+    "train_type": "full",
+    "packing": true,
+    "truncation_strategy": "delete",
+    "deepspeed": "zero3",
+    "use_liger_kernel": true,
+    "learning_rate": 0.00005,
+    "seed": 42,
+    "save_only_model": false,
+    "dataset": "artifacts/phase5/data/single-clean-v1.jsonl"
+  },
+  "pilot": {
+    "max_steps": 100,
+    "gradient_accumulation_steps": 4,
+    "effective_batch_sequences": 24,
+    "save_steps": 20,
+    "estimated_wall_hours": [
+      1,
+      2
+    ],
+    "status": "user_selected_pilot"
+  },
+  "full": {
+    "max_steps": -1,
+    "num_train_epochs": 3,
+    "gradient_accumulation_steps": 42,
+    "effective_batch_sequences": 252,
+    "save_steps": 10,
+    "estimated_wall_days": [
+      5,
+      7
+    ],
+    "estimated_gpu_hours": [
+      720,
+      1008
+    ],
+    "status": "not_selected"
+  },
+  "caveats": [
+    "Pilot is a budget-limited training experiment, not completion of the full curriculum.",
+    "Official effective batch is 8x8x4=256; six-GPU full profile uses 6x1x42=252.",
+    "Clean-v1 changes data mix; report it as an explicit variant of the official recipe.",
+    "Timing estimate is based on a 2048-example uniform token sample and three-step throughput; long-run duration remains unverified."
+  ]
+}

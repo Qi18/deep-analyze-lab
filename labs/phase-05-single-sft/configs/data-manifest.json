@@ -1,0 +1,660 @@
+{
+  "dataset_revision": "f2dd0a62927f49f0a1d2465e32dc4072910e7c89",
+  "source_script": "DeepAnalyze/scripts/single.sh",
+  "source_script_sha256": "bdb064945b26a048f801e80f8630d184c51b06fdc3c448a02c7f0e70509ecfcf",
+  "policy": "clean-v1: schema and line-start tags, exact benchmark user prompt exclusion, metadata length <=8192, exact conversation dedup; first occurrence retained",
+  "benchmark_check": "Normalized full user prompt equality only; no semantic/decontamination guarantee. Gold answers and reference code never enter training outputs.",
+  "benchmark_sha256": "e8c6daa9d7223976bce0296644f3933f78d7f47830669ff05cd61da62c6ba9b3",
+  "tokenizer_limit_note": "Metadata tokens are a prefilter; ms-swift must additionally delete samples exceeding actual templated max_length.",
+  "files": [
+    {
+      "source": "reasoning/SKGInstruct_199989.json",
+      "sha256": "48eafdda34426b95c3d55bee5f6232f2ab2eb2227e472565cac7171c09929d46",
+      "bytes": 781219577,
+      "raw": 199989,
+      "malformed": 4901,
+      "duplicate": 0,
+      "exact_benchmark_prompt": 0,
+      "invalid_tokens": 0,
+      "over_metadata_8192": 0,
+      "kept": 195088
+    },
+    {
+      "source": "reasoning/TableQA_distillation_39301.json",
+      "sha256": "92c09cfff193dcb53897941d0dd7fe7bddb557782496686c692946cd5c602404",
+      "bytes": 363965410,
+      "raw": 39301,
+      "malformed": 0,
+      "duplicate": 92,
+      "exact_benchmark_prompt": 0,
+      "invalid_tokens": 0,
+      "over_metadata_8192": 317,
+      "kept": 38892
+    },
+    {
+      "source": "reasoning/TableQA_refinement_39301.json",
+      "sha256": "2a52da01c51ecdc3a42bcf23c8966bd3a3e75ca9cbd8bfc4db0b3adcb197bafb",
+      "bytes": 412293367,
+      "raw": 39301,
+      "malformed": 1,
+      "duplicate": 1739,
+      "exact_benchmark_prompt": 0,
+      "invalid_tokens": 0,
+      "over_metadata_8192": 84,
+      "kept": 37477
+    },
+    {
+      "source": "reasoning/TableGPT_29448.json",
+      "sha256": "d5869f1b26df14c1a48220cae4644e1c5f0b6153e3639de6ad5f1e14299d468f",
+      "bytes": 112075532,
+      "raw": 29448,
+      "malformed": 16,
+      "duplicate": 0,
+      "exact_benchmark_prompt": 0,
+      "invalid_tokens": 0,
+      "over_metadata_8192": 0,
+      "kept": 29432
+    },
+    {
+      "source": "reasoning/file_database_3833.json",
+      "sha256": "7f4c8e4b02e69e207b45a875bbb3555313d9729803a78e52b9c4ad19eb60b81e",
+      "bytes": 40547936,
+      "raw": 3833,
+      "malformed": 9,
+      "duplicate": 0,
+      "exact_benchmark_prompt": 0,
+      "invalid_tokens": 0,
+      "over_metadata_8192": 15,
+      "kept": 3809
+    },
+    {
+      "source": "reasoning/file_csv_3007.json",
+      "sha256": "66ced4386bd4c55f4cf132b8765563b6c2fb12163782659ba9222fb74c7b175c",
+      "bytes": 31065976,
+      "raw": 3007,
+      "malformed": 3,
+      "duplicate": 0,
+      "exact_benchmark_prompt": 0,
+      "invalid_tokens": 0,
+      "over_metadata_8192": 21,
+      "kept": 2983
+    },
+    {
+      "source": "reasoning/file_xlsx_3663.json",
+      "sha256": "480f4bbafefb758ee457895a6123d6555693e929bc2dfd3feb4d14ef884b3a60",
+      "bytes": 38882189,
+      "raw": 3663,
+      "malformed": 57,
+      "duplicate": 0,
+      "exact_benchmark_prompt": 0,
+      "invalid_tokens": 0,
+      "over_metadata_8192": 28,
+      "kept": 3578
+    },
+    {
+      "source": "reasoning/file_any_2520.json",
+      "sha256": "5fa945edb6bea33f27bda6a9e8f4ddf2c5b9f1c2fd247b11d8eb629c5b4ee038",
+      "bytes": 32571265,
+      "raw": 2520,
+      "malformed": 0,
+      "duplicate": 0,
+      "exact_benchmark_prompt": 0,
+      "invalid_tokens": 0,
+      "over_metadata_8192": 19,
+      "kept": 2501
+    },
+    {
+      "source": "reasoning/math_20000.json",
+      "sha256": "3910e826a43318a7b4cba7d9a279635daca90d98d71a863112953113e32ea622",
+      "bytes": 499275803,
+      "raw": 20000,
+      "malformed": 0,
+      "duplicate": 0,
+      "exact_benchmark_prompt": 0,
+      "invalid_tokens": 0,
+      "over_metadata_8192": 8474,
+      "kept": 11526
+    },
+    {
+      "source": "reasoning/code_20000.json",
+      "sha256": "5507028cf3ad65b7e242baa445c53c9673ada8ce284c0ea1d87cb3606130bc11",
+      "bytes": 861166041,
+      "raw": 20000,
+      "malformed": 0,
+      "duplicate": 0,
+      "exact_benchmark_prompt": 0,
+      "invalid_tokens": 0,
+      "over_metadata_8192": 10267,
+      "kept": 9733
+    },
+    {
+      "source": "reasoning/science_20000.json",
+      "sha256": "f3422ee2288889efc04c0d2f566e0f86e8af454db9b61453c97c4d1307237eab",
+      "bytes": 205326952,
+      "raw": 20000,
+      "malformed": 0,
+      "duplicate": 0,
+      "exact_benchmark_prompt": 0,
+      "invalid_tokens": 0,
+      "over_metadata_8192": 1458,
+      "kept": 18542
+    },
+    {
+      "source": "reasoning/instruction_following_20000.json",
+      "sha256": "0f0e043115a7d1d067c7447b1ad9c62ce9587fbf316367a26da011d490aaba67",
+      "bytes": 169751313,
+      "raw": 20000,
+      "malformed": 0,
+      "duplicate": 0,
+      "exact_benchmark_prompt": 0,
+      "invalid_tokens": 0,
+      "over_metadata_8192": 357,
+      "kept": 19643
+    },
+    {
+      "source": "reasoning/other_19998.json",
+      "sha256": "3df5145fdcf4d3b94c2ec614b49fbbbad79feada0136235f0dff3a05226af093",
+      "bytes": 183261606,
+      "raw": 19998,
+      "malformed": 0,
+      "duplicate": 0,
+      "exact_benchmark_prompt": 0,
+      "invalid_tokens": 0,
+      "over_metadata_8192": 333,
+      "kept": 19665
+    }
+  ],
+  "records": 392869,
+  "output": "/data/projects/deep-analyze-lab/artifacts/phase5/data/single-clean-v1.jsonl",
+  "sha256": "6833b4beaa6c8114d14d88cd3ad594ddea6ca5af2bc9e14ca4deaf02f7d91a42",
+  "smoke": {
+    "count": 96,
+    "seed": 42,
+    "max_metadata_tokens": 2048,
+    "eligible": 297551,
+    "output": "/data/projects/deep-analyze-lab/artifacts/phase5/data/smoke-96.jsonl",
+    "sha256": "0de8dc9c1b75e8bc33f9bc7f9f562d4807c4218e4070b61dbbdac7b9396455f9",
+    "rows": [
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 134519,
+        "source_id": 954064
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 23495,
+        "source_id": 579741
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 30577,
+        "source_id": 602244
+      },
+      {
+        "source": "reasoning/TableGPT_29448.json",
+        "source_row": 16959,
+        "source_id": 16961
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 56985,
+        "source_id": 691845
+      },
+      {
+        "source": "reasoning/science_20000.json",
+        "source_row": 18909,
+        "source_id": 18909
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 51946,
+        "source_id": 672536
+      },
+      {
+        "source": "reasoning/TableGPT_29448.json",
+        "source_row": 10538,
+        "source_id": 10539
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 84644,
+        "source_id": 791384
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 160805,
+        "source_id": 1040676
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 98068,
+        "source_id": 840543
+      },
+      {
+        "source": "reasoning/TableQA_distillation_39301.json",
+        "source_row": 35669,
+        "source_id": 35670
+      },
+      {
+        "source": "reasoning/instruction_following_20000.json",
+        "source_row": 19998,
+        "source_id": 19998
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 199273,
+        "source_id": 1184176
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 42711,
+        "source_id": 641350
+      },
+      {
+        "source": "reasoning/instruction_following_20000.json",
+        "source_row": 5748,
+        "source_id": 5748
+      },
+      {
+        "source": "reasoning/science_20000.json",
+        "source_row": 19937,
+        "source_id": 19937
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 62569,
+        "source_id": 712916
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 135479,
+        "source_id": 956794
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 84569,
+        "source_id": 791149
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 192160,
+        "source_id": 1161046
+      },
+      {
+        "source": "reasoning/instruction_following_20000.json",
+        "source_row": 3591,
+        "source_id": 3591
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 185922,
+        "source_id": 1140731
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 158820,
+        "source_id": 1030473
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 199778,
+        "source_id": 1185806
+      },
+      {
+        "source": "reasoning/instruction_following_20000.json",
+        "source_row": 12209,
+        "source_id": 12209
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 112822,
+        "source_id": 887038
+      },
+      {
+        "source": "reasoning/other_19998.json",
+        "source_row": 19156,
+        "source_id": 19158
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 7091,
+        "source_id": 529712
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 44574,
+        "source_id": 646994
+      },
+      {
+        "source": "reasoning/other_19998.json",
+        "source_row": 13434,
+        "source_id": 13436
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 143939,
+        "source_id": 981604
+      },
+      {
+        "source": "reasoning/TableQA_refinement_39301.json",
+        "source_row": 16989,
+        "source_id": 16989
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 129769,
+        "source_id": 939352
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 73309,
+        "source_id": 755089
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 100515,
+        "source_id": 847336
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 39396,
+        "source_id": 631263
+      },
+      {
+        "source": "reasoning/other_19998.json",
+        "source_row": 14990,
+        "source_id": 14992
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 64184,
+        "source_id": 717724
+      },
+      {
+        "source": "reasoning/TableQA_distillation_39301.json",
+        "source_row": 21040,
+        "source_id": 21040
+      },
+      {
+        "source": "reasoning/TableGPT_29448.json",
+        "source_row": 18000,
+        "source_id": 18003
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 115149,
+        "source_id": 894357
+      },
+      {
+        "source": "reasoning/TableQA_distillation_39301.json",
+        "source_row": 3800,
+        "source_id": 3800
+      },
+      {
+        "source": "reasoning/science_20000.json",
+        "source_row": 17872,
+        "source_id": 17872
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 193338,
+        "source_id": 1164489
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 169082,
+        "source_id": 1071278
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 48956,
+        "source_id": 662193
+      },
+      {
+        "source": "reasoning/TableGPT_29448.json",
+        "source_row": 26157,
+        "source_id": 26160
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 29998,
+        "source_id": 600436
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 99811,
+        "source_id": 845267
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 38191,
+        "source_id": 626259
+      },
+      {
+        "source": "reasoning/file_any_2520.json",
+        "source_row": 2514,
+        "source_id": 6702
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 198445,
+        "source_id": 1181780
+      },
+      {
+        "source": "reasoning/TableGPT_29448.json",
+        "source_row": 5353,
+        "source_id": 5353
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 116205,
+        "source_id": 897549
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 46158,
+        "source_id": 653047
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 97423,
+        "source_id": 838834
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 123462,
+        "source_id": 920910
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 80758,
+        "source_id": 778742
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 144570,
+        "source_id": 983489
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 84975,
+        "source_id": 792424
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 142961,
+        "source_id": 978798
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 93435,
+        "source_id": 824910
+      },
+      {
+        "source": "reasoning/TableQA_distillation_39301.json",
+        "source_row": 9864,
+        "source_id": 9864
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 103627,
+        "source_id": 857951
+      },
+      {
+        "source": "reasoning/TableGPT_29448.json",
+        "source_row": 11314,
+        "source_id": 11315
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 56902,
+        "source_id": 691605
+      },
+      {
+        "source": "reasoning/TableGPT_29448.json",
+        "source_row": 29134,
+        "source_id": 29138
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 167243,
+        "source_id": 1065994
+      },
+      {
+        "source": "reasoning/TableGPT_29448.json",
+        "source_row": 5612,
+        "source_id": 5612
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 66260,
+        "source_id": 728331
+      },
+      {
+        "source": "reasoning/other_19998.json",
+        "source_row": 11717,
+        "source_id": 11718
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 183816,
+        "source_id": 1131440
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 21378,
+        "source_id": 573570
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 164325,
+        "source_id": 1051390
+      },
+      {
+        "source": "reasoning/TableGPT_29448.json",
+        "source_row": 29250,
+        "source_id": 29254
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 104264,
+        "source_id": 860476
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 149096,
+        "source_id": 996793
+      },
+      {
+        "source": "reasoning/TableQA_distillation_39301.json",
+        "source_row": 8546,
+        "source_id": 8546
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 38903,
+        "source_id": 629756
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 74285,
+        "source_id": 757992
+      },
+      {
+        "source": "reasoning/TableQA_distillation_39301.json",
+        "source_row": 16197,
+        "source_id": 16197
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 38776,
+        "source_id": 629375
+      },
+      {
+        "source": "reasoning/file_database_3833.json",
+        "source_row": 356,
+        "source_id": 687
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 180599,
+        "source_id": 1121793
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 55428,
+        "source_id": 686500
+      },
+      {
+        "source": "reasoning/TableQA_distillation_39301.json",
+        "source_row": 2373,
+        "source_id": 2373
+      },
+      {
+        "source": "reasoning/instruction_following_20000.json",
+        "source_row": 11432,
+        "source_id": 11432
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 189545,
+        "source_id": 1151287
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 38608,
+        "source_id": 628895
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 108270,
+        "source_id": 873324
+      },
+      {
+        "source": "reasoning/instruction_following_20000.json",
+        "source_row": 9747,
+        "source_id": 9747
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 182295,
+        "source_id": 1126962
+      },
+      {
+        "source": "reasoning/TableQA_refinement_39301.json",
+        "source_row": 5308,
+        "source_id": 5308
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 69208,
+        "source_id": 743064
+      },
+      {
+        "source": "reasoning/SKGInstruct_199989.json",
+        "source_row": 11949,
+        "source_id": 543226
+      }
+    ]
+  }
+}

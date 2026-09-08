@@ -3,7 +3,7 @@ set -euo pipefail
 
 MODEL="${1:-}"
 MODE="${2:-run}"
-WORK="/data/projects/deep-analyze-lab/artifacts/phase3/official-eval/DS-1000"
+WORK="${DS1000_WORKDIR:-/data/projects/deep-analyze-lab/artifacts/phase3/official-eval/DS-1000}"
 VENV="/data/venvs/ds1000-eval"
 AUDIT="/data/projects/deep-analyze-lab/labs/phase-03-evaluation/scripts/audit_ds1000_answers.py"
 if [[ -z "$MODEL" ]]; then
@@ -14,7 +14,7 @@ fi
 mkdir -p "$WORK/results"
 python3 "$AUDIT" --answers "$WORK/data/${MODEL}-answers.jsonl" > "$WORK/results/${MODEL}-audit.json"
 cat "$WORK/results/${MODEL}-audit.json"
-SCRATCH="$(mktemp -d /tmp/ds1000-eval.XXXXXX)"
+SCRATCH="$(mktemp -d "${DS1000_SCRATCH_ROOT:-/tmp}/ds1000-eval.XXXXXX")"
 cleanup() {
   rm -rf "$SCRATCH"
 }

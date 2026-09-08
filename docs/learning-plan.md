@@ -112,6 +112,14 @@ L20 权威工作区为 `/data/projects/deep-analyze-lab`，上游源码保留在
 
 ## 11. 当前执行位置
 
+2026-09-08：Phase 1–4 已完成各自定义的实验验收。Phase 3 采用官方 DS-1000 全部 1,000 题，Base 30.0%、Official 58.7%；Phase 4 完成数据审计与 0.6B 训练链路验证。
+Phase 5 已准备 clean-v1 392,869 条单能力数据，并完成 6×L20 的 8B 3-step 资源预检及 checkpoint 重载。
+按用户选择，本轮先进行 100-step、约 1–2 小时的 8B 全参数试验，然后运行同协议官方 DS-1000。
+全量三轮估计 5–7 天，本轮未启动；100-step 试验不等同于完成完整课程，也不提前登记效果提升。
+详细配置、已知边界和运行入口见 [Phase 5 报告](../labs/phase-05-single-sft/results/report.md)。
+
+### Phase 1 保留的研究问题
+
 Phase 1 已在 L20 完成官方模型的五类分析任务，得到 3 passed / 1 partial / 1 failed。已确认的后续研究对象包括：
 
 - 执行环境不保留上一轮变量时，模型如何利用错误反馈恢复。
