@@ -158,6 +158,7 @@ B3/B4 只有实际完成训练并在独立测试集评估后才填写。报告�
 | 候选结论 | 实际结果 | 评测范围 | 实验 ID | 证据路径 | 状态 |
 |---|---|---|---|---|---|
 | 复现官方 DS-1000 并量化后训练差异 | Base 30.0%，DeepAnalyze-8B 58.7%，绝对提升 28.7 个百分点 | 1000 tasks，单次运行，temperature=0 | phase3-ds1000-base8b / phase3-ds1000-deepanalyze8b | `labs/phase-03-evaluation/results/report.md` | verified |
+| 完成训练数据审计与小模型训练链路验证 | 审计 463,600 条聚合数据；完成 2-step SFT 与 checkpoint 推理 | 固定数据 revision；32-record runtime smoke，不评价模型效果 | phase4-data-audit / phase4-smoke-sft | `labs/phase-04-training-data/results/report.md` | verified |
 | 构建 LLM 训练实验自动分析 Agent | 待填写 | 待填写 | E05 | 待填写 | unverified |
 | 实现受控执行与错误恢复 | 待填写 | Resume-Eval-v1 | E03/E04 | 待填写 | unverified |
 | 在 30 项任务达到正确率/证据/安全指标 | 待填写 | 30 tasks | E05/E06 | 待填写 | unverified |

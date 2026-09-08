@@ -7,7 +7,7 @@
 | [Phase 01](phase-01-deployment/README.md) | 官方部署与五类推理验证 | completed | 3 passed / 1 partial / 1 failed |
 | [Phase 02](phase-02-agent-loop/README.md) | Agent Loop 与执行反馈 | completed | 契约 4/4；提示驱动 0/2；反馈回放 3/3 |
 | [Phase 03](phase-03-evaluation/README.md) | 官方评测基线 | completed | DS-1000：Base 300/1000，DeepAnalyze-8B 587/1000 |
-| [Phase 04](phase-04-training-data/README.md) | 数据与训练准备 | planned | 数据审计和小模型短跑 |
+| [Phase 04](phase-04-training-data/README.md) | 数据与训练准备 | completed | 审计 463,600 条；Qwen3-0.6B 2-step SFT 与推理链路通过 |
 | [Phase 05](phase-05-single-sft/README.md) | 单能力 SFT | planned | 训练前后分能力对照 |
 | [Phase 06](phase-06-cold-start/README.md) | 多能力 Cold Start | planned | 多轮工具交互对照 |
 | [Phase 07](phase-07-agentic-rl/README.md) | Agentic RL | planned | GRPO、奖励分析和消融 |

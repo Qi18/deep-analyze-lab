@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "dataset": "ruc-datalab/DataScience-Instruct-500K",
+  "revision": "f2dd0a62927f49f0a1d2465e32dc4072910e7c89",
+  "download_endpoint": "https://hf-mirror.com",
+  "l20_root": "/data/datasets/DataScience-Instruct-500K/f2dd0a62927f49f0a1d2465e32dc4072910e7c89",
+  "files": {
+    "single_ability_finetuning.json": {
+      "bytes": 3958828784,
+      "sha256": "2cc065182448e5653f537cccba565c3dade1c41657b3afab4253c3c5f807109d",
+      "records": 437398,
+      "official_script_records": 421060,
+      "configured_max_length": 8192
+    },
+    "multi_ability_agentic_training.json": {
+      "bytes": 1300795313,
+      "sha256": "d83e44cbd465a6fd5cb28ceb9c435b89ef1d9088aac34efaa105a1385b5ce73c",
+      "records": 26202,
+      "official_script_records": 26202,
+      "configured_max_length": 32768
+    }
+  },
+  "notes": [
+    "The aggregate single-ability file contains 16,338 rows more than DeepAnalyze/scripts/single.sh.",
+    "Phase 5 must use the official per-source file list unless a separate ablation explicitly adds dscode_16338.json.",
+    "Full dataset files stay outside Git; only checksums and summaries are committed."
+  ]
+}

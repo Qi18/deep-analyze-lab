@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "scope": "data audit and two-step runtime smoke; not a model-quality evaluation",
+  "lab_start_commit": "b997e76e7c6cf30d627bd239db493ac05322ff56",
+  "deepanalyze_source_commit": "d14468b9ef91372359ddcd70da57e0e0f4eb0d1b",
+  "dataset_revision": "f2dd0a62927f49f0a1d2465e32dc4072910e7c89",
+  "data_audit": {
+    "single_ability": {
+      "records": 437398,
+      "official_script_records": 421060,
+      "extra_vs_official_script": 16338,
+      "role_sequence_user_assistant": 437398,
+      "exact_duplicate_conversations": 1838,
+      "malformed_line_start_action_tags": 7370,
+      "total_tokens": {"p50": 1208, "p90": 4373, "p95": 8397, "p99": 23965, "max": 144692, "mean": 2392.61},
+      "over_8192": 22477,
+      "over_8192_rate": 0.051388
+    },
+    "multi_ability": {
+      "records": 26202,
+      "official_script_records": 26202,
+      "role_sequence_user_assistant": 26202,
+      "exact_duplicate_conversations": 0,
+      "malformed_line_start_action_tags": 64,
+      "total_tokens": {"p50": 11150, "p90": 20509, "p95": 23500, "p99": 34306, "max": 187730, "mean": 12209.23},
+      "over_32768": 302,
+      "over_32768_rate": 0.011526
+    }
+  },
+  "tokenizer_check": {
+    "deepseek_8b_before": {"tokenizer_length": 151671, "embedding_rows": 151936, "standalone_action_tokens": 0},
+    "qwen3_0_6b_after": {"tokenizer_length": 151679, "embedding_rows": 151679, "standalone_action_tokens": 10}
+  },
+  "smoke_subset": {
+    "records": 32,
+    "seed": 42,
+    "max_total_tokens": 2048,
+    "eligible_source_rows": 306243,
+    "sha256": "d1b89fc755f1b607fe3d771029dd790dc60319ae1ce365dcfd22ebb4843919d0",
+    "manual_structure_review": {"reviewed": 8, "passed": 8, "correctness_checked": 0}
+  },
+  "smoke_training": {
+    "model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "packed_sequences": 18,
+    "trainable_parameters": 595786800,
+    "steps": [
+      {"step": 1, "loss": 1.41396558, "token_accuracy": 0.72689076, "grad_norm": 33.75, "peak_memory_gib": 5.64},
+      {"step": 2, "loss": 1.31801772, "token_accuracy": 0.73580247, "grad_norm": 19.75, "peak_memory_gib": 7.02}
+    ],
+    "train_loss": 1.36599165,
+    "runtime_seconds": 3.4126,
+    "checkpoint": "artifacts/phase4/smoke/run/v2-20260908-041334/checkpoint-2",
+    "checkpoint_model_sha256": "063b382196f9ea551ed7790b3a7b87af167f4f28a8e0322eaf0b811fee7f655f",
+    "label_mask_observation": {"user_prompt_prefix_tokens_masked": 532, "source": "final ms-swift preprocessing log"}
+  },
+  "smoke_inference": {
+    "input_tokens": 589,
+    "generated_tokens": 38,
+    "max_new_tokens": 64,
+    "peak_gpu_memory_gib": 1.198,
+    "reference_answer": "2",
+    "generated_answer": "1",
+    "runtime_pass": true,
+    "correctness_pass": false
+  },
+  "failed_attempts": [
+    "packing=true with sdpa was rejected because flash_attn is required",
+    "the first flash-attention attempt was rejected because model_type qwen3 was not explicit",
+    "datasets 4.x was incompatible with the pinned upstream stack; datasets 3.3.2 completed the run"
+  ]
+}
