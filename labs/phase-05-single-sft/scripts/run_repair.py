@@ -9,7 +9,12 @@ RUN=ROOT/"artifacts/phase5/repair-v1"
 BASE="/data/models/DeepSeek-R1-0528-Qwen3-8B-phase5-addvocab"
 TRAIN_PY="/data/venvs/deepanalyze-train/bin/python"
 INFER_PY="/data/venvs/tesla-vllm-085/bin/python"
-GPUS=[2,3,4,5,6,7]
+GPUS=[int(g) for g in os.environ.get("PHASE5_GPUS","2,3,4,5,6,7").split(",")]
+if not GPUS or len(set(GPUS))!=len(GPUS) or 252%len(GPUS):
+    raise ValueError("Unique GPUs must divide effective batch 252")
+ACCUM=252//len(GPUS)
+DS_CONFIG=os.environ.get("DEEPSPEED_CONFIG","zero3")
+GATE_STEPS=int(os.environ.get("REPAIR_GATE_STEPS","10"))
 BUDGET=12*3600
 def write_json(path,value):
     path.parent.mkdir(parents=True,exist_ok=True)
@@ -45,7 +50,7 @@ def development(model,name):
         check_gpus()
         command([INFER_PY,str(LAB/"scripts/repair_dev.py"),"--model",str(model),"--output",str(output)],
                 RUN/"logs"/f"dev-{name}.log",1800,
-                env=dict(os.environ,CUDA_VISIBLE_DEVICES="2",OMP_NUM_THREADS="4",TOKENIZERS_PARALLELISM="false"))
+                env=dict(os.environ,CUDA_VISIBLE_DEVICES=str(GPUS[0]),OMP_NUM_THREADS="4",TOKENIZERS_PARALLELISM="false"))
     result=json.loads(output.read_text())
     if result["model"]!=str(model) or result["max_tokens"]!=2048 or result["summary"]["count"]!=32:
         raise RuntimeError("Development cache protocol/model mismatch")
@@ -66,6 +71,8 @@ def load_module(name,path):
 def pipeline():
     if (RUN/"train").exists():raise RuntimeError("Training exists; explicit recovery required, not an automatic restart")
     preflight=json.loads((RUN/"preflight.json").read_text())
+    if preflight.get("deepspeed","zero3")!=DS_CONFIG:
+        raise RuntimeError("DeepSpeed mode differs from resume preflight")
     if not preflight["passed"]:raise RuntimeError("Segment resume preflight did not pass")
     for name,digest in preflight["script_hashes"].items():
         if hashlib.sha256((LAB/"scripts"/name).read_bytes()).hexdigest()!=digest:
@@ -77,9 +84,11 @@ def pipeline():
         for chunk in iter(lambda:f.read(1024*1024),b""):sha.update(chunk)
     if sha.hexdigest()!=manifest["sha256"]:raise RuntimeError("Training data changed")
     config={"data_sha256":sha.hexdigest(),"actual_tokens":manifest["actual_tokens"],
-            "base":BASE,"gpus":GPUS,"micro_batch":1,"gradient_accumulation":42,"effective_batch":252,
+            "base":BASE,"gpus":GPUS,"micro_batch":1,"gradient_accumulation":ACCUM,"effective_batch":252,
+            "deepspeed":DS_CONFIG,
             "learning_rate":1e-5,"max_length":8192,"epochs":1,"warmup_ratio":0.1,
-            "training_budget_seconds":BUDGET,"dev_every_optimizer_steps":10,
+            "training_budget_seconds":BUDGET,"dev_every_optimizer_steps":GATE_STEPS,
+            "first_dev_step":1,
             "script_hashes":{name:hashlib.sha256((LAB/"scripts"/name).read_bytes()).hexdigest()
                 for name in ["repair_dev.py","repair_callback.py","train_repair.sh","prepare_repair.py","run_repair.py"]},
             "dev_gate":"severe >=8/32 correct/code drop or >=8 repeats; stop immediately. Moderate >=4/32 correct/ending drop or +4 repeats at two consecutive gates. Official eval requires final selected dev result no worse than baseline.",
@@ -91,18 +100,25 @@ def pipeline():
     previous=0;training_seconds=0;history=[];moderate_streak=0;resume=None
     while True:
         check_gpus()
-        limit=previous+10
+        limit=1 if previous==0 else previous+GATE_STEPS
         state("training",next_stop_step=limit,training_seconds=training_seconds,budget_seconds=BUDGET)
-        env=dict(os.environ,REPAIR_STOP_STEP=str(limit))
+        env=dict(os.environ,REPAIR_STOP_STEP=str(limit),PHASE5_GPUS=",".join(map(str,GPUS)),
+                 GRAD_ACCUM=str(ACCUM),DEEPSPEED_CONFIG=DS_CONFIG,MICRO_BATCH="1",MAX_LENGTH="8192",
+                 MAX_STEPS="-1",SAVE_STEPS=str(GATE_STEPS))
         if resume:env["RESUME_FROM"]=str(resume)
         remaining=BUDGET-training_seconds
         if remaining<60:
-            state("stopped_at_budget",checkpoint=str(resume),training_seconds=training_seconds);return
+            state("stopped_at_budget",checkpoint=str(resume),training_seconds=training_seconds)
+            if history:break
+            return
         try:
             used=command(["bash",str(LAB/"scripts/train_repair.sh")],RUN/"logs"/f"train-to-{limit}.log",
                          remaining,env=env)
         except subprocess.TimeoutExpired:
-            state("stopped_at_budget",checkpoint=str(resume),training_seconds=BUDGET);return
+            training_seconds=BUDGET
+            state("stopped_at_budget",checkpoint=str(resume),training_seconds=BUDGET)
+            if history:break
+            return
         training_seconds+=used
         checkpoints=list((RUN/"train").glob("checkpoint-*/trainer_state.json"))
         if not checkpoints:raise RuntimeError("No recoverable checkpoint saved")
@@ -129,11 +145,12 @@ def pipeline():
     write_json(RUN/"selected.json",best)
     state("official_evaluation",selected=best,training_seconds=training_seconds)
     runner=load_module("official_repair",LAB/"scripts/run_pilot.py")
+    runner.GPUS=GPUS
     runner.NAME="phase5-repair-v1";runner.EVAL=ROOT/"artifacts/phase5/repair-v1-official"
     runner.STATE=RUN/"official-state.json"
     runner.evaluate(Path(best["checkpoint"]))
     summary=json.loads((runner.EVAL/"summary.json").read_text())
-    summary["scope"]="Repair-v1 ~100M-token single-epoch experiment; checkpoint selected on fresh development tasks; not complete Phase 5 curriculum."
+    summary["scope"]="Repair-v1 ~100M-token dataset, at most one epoch under 12h training cap; may stop before epoch completion. Checkpoint selected on fresh development tasks; not complete Phase 5 curriculum."
     write_json(runner.EVAL/"summary.json",summary)
     state("completed",training_seconds=training_seconds,selected=best,official=summary["overall"])
 def main():

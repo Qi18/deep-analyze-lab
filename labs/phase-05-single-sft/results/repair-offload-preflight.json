@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "model": "Qwen3-0.6B-c1899de-addvocab",
+  "gpus": [
+    2,
+    3
+  ],
+  "deepspeed": "zero3_offload",
+  "stop_step": 1,
+  "resume_step": 2,
+  "scheduler_max_steps": 2,
+  "learning_rates": {
+    "1": 1e-05,
+    "2": 0.0
+  },
+  "script_hashes": {
+    "train_repair.sh": "297b6741231f677adb221048ec5ad516d63a4d16b78721ddb603f101e7094717",
+    "repair_callback.py": "e0f7d17834a3eb9c646b5457dd8084512e568f59ad7b78650dbf0c8a6a61fbcf"
+  },
+  "scope": "Two GPU CPU offload stop/save/resume verified; not 8B throughput or quality."
+}

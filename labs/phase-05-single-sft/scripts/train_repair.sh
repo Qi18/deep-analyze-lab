@@ -35,6 +35,6 @@ exec "$PYTHON_BIN" -m torch.distributed.run --nproc_per_node="${#DEVICES[@]}" --
   --gradient_checkpointing true --seed 42 --data_seed 42 --split_dataset_ratio 0 \
   --dataset_num_proc 8 --dataloader_num_workers 0 --eval_strategy no --logging_steps 1 \
   --save_strategy steps --save_steps "${SAVE_STEPS:-10}" --save_total_limit 8 --save_only_model false \
-  --response_prefix "" --output_dir "$OUTPUT_DIR" --add_version false --deepspeed zero3 \
+  --response_prefix "" --output_dir "$OUTPUT_DIR" --add_version false --deepspeed "${DEEPSPEED_CONFIG:-zero3}" \
   --use_liger_kernel true --attn_impl flash_attn --report_to none \
   --external_plugins "$REPO_ROOT/labs/phase-05-single-sft/scripts/repair_callback.py" "${EXTRA[@]}"
