@@ -48,7 +48,7 @@ Phase 3 已按上游官方 DS-1000 推理与执行评分方法完成 1000 题单
 | Phase 02：Agent Loop | completed | 契约 4/4；提示驱动 0/2；真实反馈回放 3/3 |
 | Phase 03：官方评测基线 | completed | DS-1000：Base 30.0%，DeepAnalyze-8B 58.7% |
 | Phase 04：训练数据 | completed | 审计 463,600 条；Qwen3-0.6B 2-step SFT 与 checkpoint 推理通过 |
-| Phase 05：单能力 SFT | in_progress | clean-v1 392,869 条；8B 预检通过；100-step 试验及官方评测待完成 |
+| Phase 05：单能力 SFT | in_progress | 100-step DS-1000 3.7%；约 100M-token 修复数据及续训预检完成，等待 GPU |
 | Phase 06：Cold Start | planned | 等待多轮轨迹训练 |
 | Phase 07：Agentic RL | planned | 等待 GRPO 和奖励消融 |
 | Phase 08：综合评测 | planned | 等待最终冻结版本 |

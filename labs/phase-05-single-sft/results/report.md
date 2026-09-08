@@ -1,6 +1,6 @@
 # Phase 5：8B 单能力 SFT 试验
 
-状态：in_progress。用户已选择约 1–2 小时的 100-step 试验，随后做官方 DS-1000；全量三轮未启动。
+状态：本轮 100-step 试验与官方评测已完成，DS-1000 为 37/1,000（3.7%）。Phase 5 整体仍在进行，全量三轮未启动；后续见 [repair-v1](repair-v1.md)。
 
 ## 已完成的预检
 
@@ -37,7 +37,7 @@
 数据 SHA-256：`6833b4beaa6c8114d14d88cd3ad594ddea6ca5af2bc9e14ca4deaf02f7d91a42`。
 逐文件 checksum 和互斥过滤计数见 `../configs/data-manifest.json`。
 
-## 正在运行的 100-step 试验
+## 已完成的 100-step 试验
 
 - 基础模型：DeepSeek-R1-0528-Qwen3-8B，revision `6e8885a6ff5c1dc5201574c8fd700323f23c25fa`。
 - 词表：使用固定上游 `add_vocab.py` 扩展 10 个 Action Token；基础模型的额外 padded embedding 行缩到实际词表 151,681，未采用 docstring 中未实现的 think embedding 复制。
@@ -76,7 +76,7 @@ DS-1000 的隔离评分临时目录通过 `DS1000_SCRATCH_ROOT=/dev/shm` 指定�
 - `artifacts/phase5/logs/pilot-100.log`：训练原始日志。
 - `artifacts/phase5/pilot-100/v*/checkpoint-100/`：试验权重与可恢复训练状态。
 
-本次对照是 Base 30.0%、Official 58.7%、100-step SFT 待评测。三者均是单次 temperature=0 的 DS-1000 代码执行指标。
+本次对照是 Base 30.0%、Official 58.7%、100-step SFT 3.7%。三者均是单次 temperature=0 的 DS-1000 代码执行指标。100-step 训练耗时约 88 分钟，平均 loss 0.542，checkpoint-100 保存及重载通过；低 loss 不代表能力提升。
 Phase 5 只有在训练产物和训练后独立评测齐备时才能登记本轮试验完成；100-step 试验不等同于完成官方三轮课程。
 
 ## 复现与续跑

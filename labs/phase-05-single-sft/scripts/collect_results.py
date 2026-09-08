@@ -15,7 +15,7 @@ def main():
         "clean_data_sha256": manifest["sha256"],
         "data_totals": {k: sum(s[k] for s in manifest["files"]) for k in
                         ["raw", "malformed", "duplicate", "exact_benchmark_prompt", "over_metadata_8192", "kept"]},
-        "scope": "8B training preflight; DS-1000 post-training evaluation remains pending",
+        "scope": "8B preflight and pilot history; Phase 5 repair remains separate and in progress",
         "runs": []
     }
     for name in ["smoke-2048", "smoke-8192", "smoke-8192-liger", "pilot-100"]:
@@ -45,6 +45,9 @@ def main():
                 item["dataset_token_stats"] = re.findall(r"Dataset Token Length: ([^\n]+)", text)
                 item["masked_prompt_example_lengths"] = re.findall(r"\[LABELS\] \[-100 \* (\d+)\]", text)
             result["runs"].append(item)
+    official = ROOT / "artifacts/phase5/pilot-100-eval/summary.json"
+    if official.exists():
+        result["pilot_official_evaluation"] = json.loads(official.read_text())
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps({"output":str(args.output), "runs":len(result["runs"]), "data_totals":result["data_totals"]}))

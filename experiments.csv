@@ -7,4 +7,5 @@ phase4-data-audit,phase-04,completed,b997e76e7c6cf30d627bd239db493ac05322ff56,d1
 phase4-smoke-sft,phase-04,completed,b997e76,d14468b,c1899de,data-f2dd-smoke-d1b89,,labs/phase-04-training-data/results/report.md
 phase5-data-clean-v1,phase-05,completed,10432b789d828a07ac8e1278fa2aa0e0e519a628,d14468b9ef91372359ddcd70da57e0e0f4eb0d1b,6e8885a6ff5c1dc5201574c8fd700323f23c25fa,clean-v1-6833b4beaa6c8114,,labs/phase-05-single-sft/results/report.md
 phase5-8b-preflight,phase-05,completed,10432b789d828a07ac8e1278fa2aa0e0e519a628,d14468b9ef91372359ddcd70da57e0e0f4eb0d1b,6e8885a6ff5c1dc5201574c8fd700323f23c25fa,clean-v1-6833b4beaa6c8114,,labs/phase-05-single-sft/results/report.md
-phase5-pilot100,phase-05,in_progress,10432b789d828a07ac8e1278fa2aa0e0e519a628,d14468b9ef91372359ddcd70da57e0e0f4eb0d1b,6e8885a6ff5c1dc5201574c8fd700323f23c25fa,clean-v1-6833b4beaa6c8114,,labs/phase-05-single-sft/results/report.md
+phase5-pilot100,phase-05,completed,10432b789d828a07ac8e1278fa2aa0e0e519a628,d14468b9ef91372359ddcd70da57e0e0f4eb0d1b,6e8885a6ff5c1dc5201574c8fd700323f23c25fa,clean-v1-6833b4beaa6c8114,,labs/phase-05-single-sft/results/report.md
+phase5-repair-v1,phase-05,prepared,fb8435f,d14468b9ef91372359ddcd70da57e0e0f4eb0d1b,6e8885a6ff5c1dc5201574c8fd700323f23c25fa,repair-v1-03df868d4a849bbd,,labs/phase-05-single-sft/results/repair-v1.md

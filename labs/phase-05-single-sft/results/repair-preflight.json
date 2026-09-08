@@ -1,0 +1,47 @@
+{
+  "preflight": {
+    "passed": true,
+    "model": "Qwen3-0.6B-c1899de-addvocab",
+    "gpus": [
+      2,
+      3
+    ],
+    "stop_step": 2,
+    "resume_step": 4,
+    "scheduler_max_steps": 4,
+    "learning_rates": {
+      "1": 1e-05,
+      "2": 7.500000000000001e-06,
+      "3": 2.5000000000000015e-06,
+      "4": 0.0
+    },
+    "script_hashes": {
+      "train_repair.sh": "ad5d83ede8c6aa30568b17fdd846b6604e2442ceec2f2d30531c0fad685c37b1",
+      "repair_callback.py": "e0f7d17834a3eb9c646b5457dd8084512e568f59ad7b78650dbf0c8a6a61fbcf"
+    },
+    "scope": "Stop/save/resume mechanics only, not 8B performance or quality."
+  },
+  "baseline": {
+    "count": 32,
+    "passed": 31,
+    "has_code": 31,
+    "ended": 31,
+    "length_limited": 1,
+    "repetitive": 1
+  },
+  "previous_pilot": {
+    "count": 32,
+    "passed": 6,
+    "has_code": 14,
+    "ended": 14,
+    "length_limited": 18,
+    "repetitive": 10
+  },
+  "ast_tests": 6,
+  "template_length_eos_samples": 32,
+  "official_pilot": {
+    "count": 1000,
+    "passed": 37,
+    "pass_rate": 0.037
+  }
+}
