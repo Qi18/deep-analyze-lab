@@ -1,0 +1,167 @@
+{
+  "phase_status": "completed",
+  "benchmark": "DS-1000",
+  "task_count": 1000,
+  "metric": "execution pass rate",
+  "run_count": 1,
+  "absolute_improvement_percentage_points": 28.7,
+  "models": {
+    "base8b": {
+      "revision": "6e8885a6ff5c1dc5201574c8fd700323f23c25fa",
+      "overall": {
+        "count": 1000,
+        "passed": 300,
+        "pass_rate": 0.3
+      },
+      "by_library": {
+        "Matplotlib": {
+          "count": 155,
+          "passed": 71,
+          "pass_rate": 0.45806451612903226
+        },
+        "Numpy": {
+          "count": 220,
+          "passed": 78,
+          "pass_rate": 0.35454545454545455
+        },
+        "Pandas": {
+          "count": 291,
+          "passed": 62,
+          "pass_rate": 0.21305841924398625
+        },
+        "Pytorch": {
+          "count": 68,
+          "passed": 21,
+          "pass_rate": 0.3088235294117647
+        },
+        "Scipy": {
+          "count": 106,
+          "passed": 26,
+          "pass_rate": 0.24528301886792453
+        },
+        "Sklearn": {
+          "count": 115,
+          "passed": 28,
+          "pass_rate": 0.24347826086956523
+        },
+        "Tensorflow": {
+          "count": 45,
+          "passed": 14,
+          "pass_rate": 0.3111111111111111
+        }
+      },
+      "by_perturbation": {
+        "Difficult-Rewrite": {
+          "count": 162,
+          "passed": 40,
+          "pass_rate": 0.24691358024691357
+        },
+        "Origin": {
+          "count": 452,
+          "passed": 172,
+          "pass_rate": 0.3805309734513274
+        },
+        "Semantic": {
+          "count": 234,
+          "passed": 65,
+          "pass_rate": 0.2777777777777778
+        },
+        "Surface": {
+          "count": 152,
+          "passed": 23,
+          "pass_rate": 0.1513157894736842
+        }
+      }
+    },
+    "deepanalyze8b": {
+      "revision": "214c302cebc61ed92f9c856a3dd47a7fdc588d5f",
+      "overall": {
+        "count": 1000,
+        "passed": 587,
+        "pass_rate": 0.587
+      },
+      "by_library": {
+        "Matplotlib": {
+          "count": 155,
+          "passed": 92,
+          "pass_rate": 0.5935483870967742
+        },
+        "Numpy": {
+          "count": 220,
+          "passed": 152,
+          "pass_rate": 0.6909090909090909
+        },
+        "Pandas": {
+          "count": 291,
+          "passed": 154,
+          "pass_rate": 0.5292096219931272
+        },
+        "Pytorch": {
+          "count": 68,
+          "passed": 46,
+          "pass_rate": 0.6764705882352942
+        },
+        "Scipy": {
+          "count": 106,
+          "passed": 58,
+          "pass_rate": 0.5471698113207547
+        },
+        "Sklearn": {
+          "count": 115,
+          "passed": 57,
+          "pass_rate": 0.4956521739130435
+        },
+        "Tensorflow": {
+          "count": 45,
+          "passed": 28,
+          "pass_rate": 0.6222222222222222
+        }
+      },
+      "by_perturbation": {
+        "Difficult-Rewrite": {
+          "count": 162,
+          "passed": 82,
+          "pass_rate": 0.5061728395061729
+        },
+        "Origin": {
+          "count": 452,
+          "passed": 289,
+          "pass_rate": 0.6393805309734514
+        },
+        "Semantic": {
+          "count": 234,
+          "passed": 136,
+          "pass_rate": 0.5811965811965812
+        },
+        "Surface": {
+          "count": 152,
+          "passed": 80,
+          "pass_rate": 0.5263157894736842
+        }
+      }
+    }
+  },
+  "security_audit": {
+    "base8b": {
+      "records": 1000,
+      "python_blocks": 736,
+      "missing_python_blocks": 264,
+      "blocking_hits": {},
+      "dynamic_eval_review": [
+        254,
+        255
+      ],
+      "passed": true
+    },
+    "deepanalyze8b": {
+      "records": 1000,
+      "python_blocks": 954,
+      "missing_python_blocks": 46,
+      "blocking_hits": {},
+      "dynamic_eval_review": [
+        394
+      ],
+      "passed": true
+    }
+  }
+}

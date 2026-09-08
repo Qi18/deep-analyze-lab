@@ -42,8 +42,9 @@
 
 ## 4. 评测数据与实验协议
 
-- 30 个任务的任务族与数量：待验证
-- 训练/开发/盲测隔离方式：待填写
+- 官方 DS-1000 1000 题 execution pass rate：Base 30.0%，DeepAnalyze-8B 58.7%，绝对提升 28.7 个百分点（单次 temperature=0）
+- 官方 CoDA-Bench Hard 119 / Full 1009 的 EA、DA：等待 Docker
+- 补充回归 20 dev + 30 test：不作为主 benchmark
 - 输入数据来源与许可：待填写
 - 参考断言生成与复核方法：待填写
 - 固定生成参数和最大 Action 轮数：待填写
@@ -142,7 +143,8 @@ B3/B4 只有实际完成训练并在独立测试集评估后才填写。报告�
 - [ ] 环境和模型 revision 可回读；
 - [ ] 数据 manifest、checksum 和许可已记录；
 - [ ] B0/B1/B2 命令可复现；
-- [ ] 30 个任务的原始输出和聚合指标存在；
+- [x] DS-1000 1000 题的官方推理与执行评分结果存在；
+- [ ] CoDA-Bench 正式结果来自 Docker 隔离模式；
 - [ ] 安全、恢复和失败结果未被删除；
 - [ ] 服务与人工效率测试的输入范围已记录；
 - [ ] 训练权重、checkpoint 和 tracking 链接有 manifest；
@@ -155,6 +157,7 @@ B3/B4 只有实际完成训练并在独立测试集评估后才填写。报告�
 
 | 候选结论 | 实际结果 | 评测范围 | 实验 ID | 证据路径 | 状态 |
 |---|---|---|---|---|---|
+| 复现官方 DS-1000 并量化后训练差异 | Base 30.0%，DeepAnalyze-8B 58.7%，绝对提升 28.7 个百分点 | 1000 tasks，单次运行，temperature=0 | phase3-ds1000-base8b / phase3-ds1000-deepanalyze8b | `labs/phase-03-evaluation/results/report.md` | verified |
 | 构建 LLM 训练实验自动分析 Agent | 待填写 | 待填写 | E05 | 待填写 | unverified |
 | 实现受控执行与错误恢复 | 待填写 | Resume-Eval-v1 | E03/E04 | 待填写 | unverified |
 | 在 30 项任务达到正确率/证据/安全指标 | 待填写 | 30 tasks | E05/E06 | 待填写 | unverified |

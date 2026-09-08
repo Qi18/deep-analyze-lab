@@ -1,0 +1,37 @@
+{
+  "primary_now": "ds1000",
+  "ds1000": {
+    "upstream_dir": "DeepAnalyze/playground/DS-1000",
+    "task_count": 1000,
+    "metric": "execution pass rate",
+    "dataset_sha256": "e8c6daa9d7223976bce0296644f3933f78d7f47830669ff05cd61da62c6ba9b3",
+    "inference_script_sha256": "d5194f0ad072dd54508f574d473399aeaaf87e7398f574017d32ebd83218338a",
+    "evaluator_sha256": "cae43b4e13babf8031d142f0542b8b172f5e3f19111dd292442298f693f6b157",
+    "execution_harness_sha256": "a56170edc7433aea4fe0a0dcf2b28c81edf2c9b4ae27f68b3ee955331501654e",
+    "generation": {
+      "max_model_len": 16384,
+      "max_new_tokens": 16384,
+      "temperature": 0.0,
+      "top_p": 0.8,
+      "batch_size": 128
+    }
+  },
+  "models": {
+    "base8b": {
+      "path": "/data/models/DeepSeek-R1-0528-Qwen3-8B",
+      "revision": "6e8885a6ff5c1dc5201574c8fd700323f23c25fa"
+    },
+    "deepanalyze8b": {
+      "path": "/data/models/DeepAnalyze-8B",
+      "revision": "214c302cebc61ed92f9c856a3dd47a7fdc588d5f"
+    }
+  },
+  "coda_bench": {
+    "role": "future primary agent benchmark",
+    "official_mode": "docker",
+    "metrics": ["EA", "DA"],
+    "full_tasks": 1009,
+    "hard_tasks": 119,
+    "status": "blocked: Docker runtime is absent in the current L20 Pod"
+  }
+}

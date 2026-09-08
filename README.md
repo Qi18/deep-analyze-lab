@@ -19,6 +19,7 @@ DeepAnalyze Lab 是围绕自主数据科学 Agent 展开的可复现实验项目
 - [系统架构](docs/architecture.md)
 - [八阶段实验与学习方案](docs/learning-plan.md)
 - [Phase 1 部署与五类任务实测报告](labs/phase-01-deployment/results/report.md)
+- [Phase 3 官方 DS-1000 基线报告](labs/phase-03-evaluation/results/report.md)
 - [Labs 阶段索引](labs/README.md)
 - [仓库管理方式](docs/repository-management.md)
 - [统一评测协议](docs/evaluation-protocol.md)
@@ -35,13 +36,15 @@ DeepAnalyze Lab 是围绕自主数据科学 Agent 展开的可复现实验项目
 
 Phase 1 已完成五类合成样例的运行与核验：3 项通过、1 项部分通过、1 项失败。失败结果如实保留，不将部署验证当作正式基准评测。
 
+Phase 3 已按上游官方 DS-1000 推理与执行评分方法完成 1000 题单次确定性基线：基础模型通过 300 题（30.0%），DeepAnalyze-8B 通过 587 题（58.7%），绝对提升 28.7 个百分点。该结果衡量代码生成与执行正确性，不等同于完整数据分析 Agent 的端到端能力。
+
 ## 当前进度
 
 | 阶段 | 状态 | 当前证据 |
 |---|---|---|
 | Phase 01：部署与推理 | completed | 五类样例 3 passed / 1 partial / 1 failed |
 | Phase 02：Agent Loop | completed | 契约 4/4；提示驱动 0/2；真实反馈回放 3/3 |
-| Phase 03：评测基线 | planned | 等待开发集、测试集与评分器 |
+| Phase 03：官方评测基线 | completed | DS-1000：Base 30.0%，DeepAnalyze-8B 58.7% |
 | Phase 04：训练数据 | planned | 等待数据审计和训练短跑 |
 | Phase 05：单能力 SFT | planned | 等待训练前后对照 |
 | Phase 06：Cold Start | planned | 等待多轮轨迹训练 |
