@@ -1,6 +1,8 @@
 # Phase 5：单能力 SFT
 
-状态：in_progress；100-step 试验已完成，DS-1000 为 3.7%。repair-v1 的约 100M-token 数据和分段续训预检完成；8B 正式训练等待 GPU 2–7 可用。
+状态：in_progress；repair-v1 双卡 12 小时预算训练及官方评测已完成，checkpoint-11 的 DS-1000 为 28.6%，基础模型为 30.0%；完整 SFT 复现和逐题原因分析尚未完成。
+
+最新结果：[Repair-v1 训练与官方评测报告](results/repair-evaluation-report.md)。
 
 本阶段学习数据清洗、全参数 SFT、packing、标签掩码、ZeRO-3 和训练前后受控评测。
 从 DeepSeek-R1-0528-Qwen3-8B 基础权重训练，保留数据、checkpoint、原始日志和失败结果。

@@ -1,0 +1,94 @@
+{
+  "model": "phase5-repair-v1",
+  "checkpoint": "/data/projects/deep-analyze-lab/artifacts/phase5/repair-v1/train/checkpoint-11",
+  "benchmark": "DS-1000",
+  "task_count": 1000,
+  "overall": {
+    "count": 1000,
+    "passed": 286,
+    "pass_rate": 0.286
+  },
+  "by_library": {
+    "Matplotlib": {
+      "count": 155,
+      "passed": 69,
+      "pass_rate": 0.44516129032258067
+    },
+    "Numpy": {
+      "count": 220,
+      "passed": 76,
+      "pass_rate": 0.34545454545454546
+    },
+    "Pandas": {
+      "count": 291,
+      "passed": 58,
+      "pass_rate": 0.19931271477663232
+    },
+    "Pytorch": {
+      "count": 68,
+      "passed": 25,
+      "pass_rate": 0.36764705882352944
+    },
+    "Scipy": {
+      "count": 106,
+      "passed": 20,
+      "pass_rate": 0.18867924528301888
+    },
+    "Sklearn": {
+      "count": 115,
+      "passed": 21,
+      "pass_rate": 0.1826086956521739
+    },
+    "Tensorflow": {
+      "count": 45,
+      "passed": 17,
+      "pass_rate": 0.37777777777777777
+    }
+  },
+  "by_perturbation": {
+    "Difficult-Rewrite": {
+      "count": 162,
+      "passed": 30,
+      "pass_rate": 0.18518518518518517
+    },
+    "Origin": {
+      "count": 452,
+      "passed": 165,
+      "pass_rate": 0.36504424778761063
+    },
+    "Semantic": {
+      "count": 234,
+      "passed": 66,
+      "pass_rate": 0.28205128205128205
+    },
+    "Surface": {
+      "count": 152,
+      "passed": 25,
+      "pass_rate": 0.16447368421052633
+    }
+  },
+  "reference_baselines": {
+    "base8b": {
+      "count": 1000,
+      "passed": 300,
+      "pass_rate": 0.3
+    },
+    "deepanalyze8b": {
+      "count": 1000,
+      "passed": 587,
+      "pass_rate": 0.587
+    }
+  },
+  "scope": "Repair-v1 ~100M-token dataset, stopped under 12h cap before one epoch; checkpoint-11 selected on development set. Not full SFT reproduction.",
+  "manual_safety_review": {
+    "reviewed_at": "2026-09-09T08:16:49.093199+00:00",
+    "answers_sha256": "2015f64175f7fdb0047469292aa103f0d02913bc1ff6b159c1532bcc895e26fe",
+    "decision": "Proceed with unchanged official scoring inside existing network/mount/user namespace sandbox",
+    "samples": {
+      "255": "ast.literal_eval only; literal parsing, no arbitrary eval",
+      "394": "eval(string): both official test inputs inspected; numeric matrix literal or numpy random array string only; no external code source",
+      "824": "ast.literal_eval only; literal parsing. Existing syntax/semantic errors left unchanged."
+    }
+  },
+  "completed_at": "2026-09-09T08:19:59.219822+00:00"
+}

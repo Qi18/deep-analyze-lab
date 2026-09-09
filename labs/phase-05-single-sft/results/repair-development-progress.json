@@ -1,0 +1,80 @@
+{
+  "baseline": {
+    "count": 32,
+    "passed": 31,
+    "has_code": 31,
+    "ended": 31,
+    "length_limited": 1,
+    "repetitive": 1
+  },
+  "history": [
+    {
+      "step": 1,
+      "checkpoint": "/data/projects/deep-analyze-lab/artifacts/phase5/repair-v1/train/checkpoint-1",
+      "metrics": {
+        "count": 32,
+        "passed": 31,
+        "has_code": 31,
+        "ended": 31,
+        "length_limited": 1,
+        "repetitive": 1
+      },
+      "training_seconds": 1575.5937423110008,
+      "qualified": true,
+      "max_steps": 49,
+      "severe": false,
+      "moderate": false
+    },
+    {
+      "step": 11,
+      "checkpoint": "/data/projects/deep-analyze-lab/artifacts/phase5/repair-v1/train/checkpoint-11",
+      "metrics": {
+        "count": 32,
+        "passed": 32,
+        "has_code": 32,
+        "ended": 32,
+        "length_limited": 0,
+        "repetitive": 0
+      },
+      "training_seconds": 14931.712161452975,
+      "qualified": true,
+      "max_steps": 49,
+      "severe": false,
+      "moderate": false
+    },
+    {
+      "step": 21,
+      "checkpoint": "/data/projects/deep-analyze-lab/artifacts/phase5/repair-v1/train/checkpoint-21",
+      "metrics": {
+        "count": 32,
+        "passed": 28,
+        "has_code": 32,
+        "ended": 32,
+        "length_limited": 0,
+        "repetitive": 0
+      },
+      "training_seconds": 28238.940551385982,
+      "qualified": false,
+      "max_steps": 49,
+      "severe": false,
+      "moderate": false
+    },
+    {
+      "step": 31,
+      "checkpoint": "/data/projects/deep-analyze-lab/artifacts/phase5/repair-v1/train/checkpoint-31",
+      "metrics": {
+        "count": 32,
+        "passed": 31,
+        "has_code": 32,
+        "ended": 32,
+        "length_limited": 0,
+        "repetitive": 0
+      },
+      "training_seconds": 41558.55870868097,
+      "qualified": true,
+      "max_steps": 49,
+      "severe": false,
+      "moderate": false
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "reviewed_at": "2026-09-09T08:16:49.093199+00:00",
+  "answers_sha256": "2015f64175f7fdb0047469292aa103f0d02913bc1ff6b159c1532bcc895e26fe",
+  "decision": "Proceed with unchanged official scoring inside existing network/mount/user namespace sandbox",
+  "samples": {
+    "255": "ast.literal_eval only; literal parsing, no arbitrary eval",
+    "394": "eval(string): both official test inputs inspected; numeric matrix literal or numpy random array string only; no external code source",
+    "824": "ast.literal_eval only; literal parsing. Existing syntax/semantic errors left unchanged."
+  }
+}
